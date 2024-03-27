@@ -19,14 +19,20 @@ public class Estudiantes implements Serializable {
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name="Name")
-    private String Name;
-    @Column(name="Identificacion")
-    private String Identificacion;
-    @Column(name="Tipo_Id")
-    private String Tipo_Id;
-    @Column(name="Edad")
-    private int Edad;
-    @Column(name="Sexo")
-    private String Sexo;
+    @Column(name="name")
+    private String name;
+    @Column(name="grado_anterior")
+    private int grado_anterior;
+    @Column(name="imagen")
+    private String imagen;
+    @Column(name="tipo_identificacion")
+    private String tipo_identificacion;
+    @Column(name="identificacion")
+    private String identificacion;
+    @Column(name="edad")
+    private int edad;
+    @Column(name="genero")
+    private String genero;
+    @Column(name="gradoid")
+    private int gradoid;
 }
