@@ -20,7 +20,7 @@ public class EstudiantesControllers {
             List<Estudiantes> estudiantes = estudianteService.find();
             return new ResponseEntity<>(estudiantes, HttpStatus.OK);
         } catch (Exception e) {
-            String errorMsg = "Error al buscar estudiantes: " + e.getMessage();
+            String errorMsg = STR."Error al buscar estudiantes: \{e.getMessage()}";
             return new ResponseEntity<>(new Response(errorMsg), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -30,7 +30,7 @@ public class EstudiantesControllers {
             Estudiantes createdEstudiante = estudianteService.save(estudiantes);
             return new ResponseEntity<>(createdEstudiante, HttpStatus.CREATED);
         } catch (Exception e) {
-            String errorMsg = "Error al crear estudiante: " + e.getMessage();
+            String errorMsg = STR."Error al crear estudiante: \{e.getMessage()}";
             return new ResponseEntity<>(new Response(errorMsg), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -41,7 +41,7 @@ public class EstudiantesControllers {
             estudianteService.save(estudiantes);
             return new ResponseEntity<>(new Response("Estudiante actualizado"), HttpStatus.OK);
         } catch (Exception e) {
-            String errorMsg = "Error al actualizar estudiante: " + e.getMessage();
+            String errorMsg = STR."Error al actualizar estudiante: \{e.getMessage()}";
             return new ResponseEntity<>(new Response(errorMsg), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -52,7 +52,7 @@ public class EstudiantesControllers {
         if (estudiante != null) {
             return new ResponseEntity<>(estudiante, HttpStatus.OK);
         } else {
-            String msg = "No se encontró ningún estudiante con el ID: " + id;
+            String msg = STR."No se encontró ningún estudiante con el ID: \{id}";
             return new ResponseEntity<>(new Response(msg), HttpStatus.NOT_FOUND);
         }
     }
@@ -71,18 +71,3 @@ public class EstudiantesControllers {
     }
 }
 
-class Response {
-    private String msg;
-
-    public Response(String msg) {
-        this.msg = msg;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-}
