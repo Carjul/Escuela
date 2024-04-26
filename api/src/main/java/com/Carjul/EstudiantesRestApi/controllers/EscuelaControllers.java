@@ -1,7 +1,6 @@
 package com.Carjul.EstudiantesRestApi.controllers;
 
 import com.Carjul.EstudiantesRestApi.models.entity.Escuela;
-import com.Carjul.EstudiantesRestApi.models.entity.Estudiantes;
 import com.Carjul.EstudiantesRestApi.services.IEscuela;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

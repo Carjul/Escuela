@@ -3,7 +3,6 @@ package com.Carjul.EstudiantesRestApi.services.Impl;
 
 import com.Carjul.EstudiantesRestApi.models.dao.EcuelaDao;
 import com.Carjul.EstudiantesRestApi.models.entity.Escuela;
-import com.Carjul.EstudiantesRestApi.models.entity.Estudiantes;
 import com.Carjul.EstudiantesRestApi.services.IEscuela;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
