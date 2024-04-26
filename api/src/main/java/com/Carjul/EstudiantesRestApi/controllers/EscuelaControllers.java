@@ -23,7 +23,7 @@ public class EscuelaControllers {
             List<Escuela> x = escuelaService.find();
             return new ResponseEntity<>(x, HttpStatus.OK);
         } catch (Exception e) {
-            String errorMsg = STR."Error al buscar escuelas: \{e.getMessage()}";
+            String errorMsg = "Error al buscar escuelas:" +e.getMessage();
             return new ResponseEntity<>(new Response(errorMsg), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -33,7 +33,7 @@ public class EscuelaControllers {
             Escuela y = escuelaService.save(escuela);
             return new ResponseEntity<>(y, HttpStatus.CREATED);
         } catch (Exception e) {
-            String errorMsg = STR."Error al crear estudiante: \{e.getMessage()}";
+            String errorMsg = "Error al crear estudiante:" +e.getMessage();
             return new ResponseEntity<>(new Response(errorMsg), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -43,7 +43,7 @@ public class EscuelaControllers {
         if (z != null) {
             return new ResponseEntity<>(z, HttpStatus.OK);
         } else {
-            String msg = STR."No se encontró ninguna escuela con el ID: \{id}";
+            String msg = "No se encontró ninguna escuela con el ID:" + id;
             return new ResponseEntity<>(new Response(msg), HttpStatus.NOT_FOUND);
         }
     }
@@ -53,7 +53,7 @@ public class EscuelaControllers {
             escuelaService.save(escuela);
             return new ResponseEntity<>(new Response("Estudiante actualizado"), HttpStatus.OK);
         } catch (Exception e) {
-            String errorMsg = STR."Error al actualizar estudiante: \{e.getMessage()}";
+            String errorMsg = "Error al actualizar estudiante:" +e.getMessage();
             return new ResponseEntity<>(new Response(errorMsg), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
