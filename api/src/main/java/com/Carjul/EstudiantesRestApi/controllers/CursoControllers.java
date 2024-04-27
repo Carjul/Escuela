@@ -1,36 +1,33 @@
 package com.Carjul.EstudiantesRestApi.controllers;
-
-import java.util.List;
-
+import com.Carjul.EstudiantesRestApi.models.entity.Curso;
+import com.Carjul.EstudiantesRestApi.services.ICurso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
-import com.Carjul.EstudiantesRestApi.models.entity.Curso;
-import com.Carjul.EstudiantesRestApi.services.ICurso;
+import java.util.List;
 
-@Service
+@RestController
 @RequestMapping("/api/v1")
 public class CursoControllers {
     @Autowired
-    private ICurso cursoService;
+    private ICurso Cursoervice;
+
     @GetMapping("curso")
     public ResponseEntity<?> find() {
         try {
-            System.out.println("jjj");
-            List<Curso> cursos = cursoService.find();
-            return new ResponseEntity<>(cursos, HttpStatus.OK);
+            List<Curso> curso = Cursoervice.find();
+            return new ResponseEntity<>(curso, HttpStatus.OK);
         } catch (Exception e) {
-            String errorMsg = "Error al buscar cursos: " + e.getMessage();
+            String errorMsg = "Error al buscar Curso: " + e.getMessage();
             return new ResponseEntity<>(new Response(errorMsg), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     @PostMapping("curso")
-    public ResponseEntity<?> create(@RequestBody Curso curso) {
+    public ResponseEntity<?> create(@RequestBody Curso Curso) {
         try {
-            Curso createdcurso = cursoService.save(curso);
+            Curso createdcurso = Cursoervice.save(Curso);
             return new ResponseEntity<>(createdcurso, HttpStatus.CREATED);
         } catch (Exception e) {
             String errorMsg = "Error al crear curso:"+ e.getMessage();
@@ -39,9 +36,9 @@ public class CursoControllers {
     }
 
     @PutMapping("curso")
-    public ResponseEntity<?> update(@RequestBody Curso curso) {
+    public ResponseEntity<?> update(@RequestBody Curso Curso) {
         try {
-            cursoService.save(curso);
+            Cursoervice.save(Curso);
             return new ResponseEntity<>(new Response("curso actualizado"), HttpStatus.OK);
         } catch (Exception e) {
             String errorMsg = "Error al actualizar curso:" +e.getMessage();
@@ -51,7 +48,7 @@ public class CursoControllers {
 
     @GetMapping("curso/{id}")
     public ResponseEntity<?> findById(@PathVariable Integer id) {
-        Curso curso = cursoService.findById(id);
+        Curso curso = Cursoervice.findById(id);
         if (curso != null) {
             return new ResponseEntity<>(curso, HttpStatus.OK);
         } else {
@@ -62,9 +59,9 @@ public class CursoControllers {
 
     @DeleteMapping("curso/{id}")
     public ResponseEntity<Response> delete(@PathVariable Integer id){
-        Curso x = cursoService.findById(id);
+        Curso x = Cursoervice.findById(id);
         if (x != null) {
-            cursoService.delete(x);
+            Cursoervice.delete(x);
             Response response = new Response("curso eliminado");
             return ResponseEntity.ok(response);
         } else {
@@ -73,3 +70,4 @@ public class CursoControllers {
 
     }
 }
+
