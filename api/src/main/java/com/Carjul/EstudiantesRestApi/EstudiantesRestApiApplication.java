@@ -18,7 +18,13 @@ public class EstudiantesRestApiApplication {
 		Dotenv dotenv = Dotenv.load();
 		Cloudinary cloudinary = new Cloudinary(dotenv.get("CLOUDINARY_URL"));
 		cloudinary.config.secure = true;
-		System.out.println(cloudinary.config.cloudName);
+		if(cloudinary.config.cloudName == null){
+			System.out.println("Cloudinary servicio no conectado");
+		}
+		else{
+			System.out.println("Cloudinary servicio "+cloudinary.config.cloudName+" Conectado");
+		}
+		
 		SpringApplication.run(EstudiantesRestApiApplication.class, args);
 	}
 
