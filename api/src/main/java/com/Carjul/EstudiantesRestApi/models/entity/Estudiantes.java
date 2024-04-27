@@ -33,6 +33,8 @@ public class Estudiantes implements Serializable {
     private int edad;
     @Column(name="genero")
     private String genero;
-    @Column(name="gradoid")
-    private int gradoid;
+    @Column(name="grado_id")
+    private  int grado_id;
+    @Column(name="grupo_id")
+    private  int grupo_id;
 }

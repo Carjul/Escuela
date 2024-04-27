@@ -1,7 +1,7 @@
 package com.Carjul.EstudiantesRestApi.services.Impl;
 
 
-import com.Carjul.EstudiantesRestApi.models.dao.EcuelaDao;
+import com.Carjul.EstudiantesRestApi.models.dao.EscuelaDao;
 import com.Carjul.EstudiantesRestApi.models.entity.Escuela;
 import com.Carjul.EstudiantesRestApi.services.IEscuela;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class EscuelaImpl implements IEscuela {
     @Autowired
-    private EcuelaDao escuelaDao;
+    private EscuelaDao escuelaDao;
     @Transactional(readOnly = true)
     @Override
     public List<Escuela> find() {

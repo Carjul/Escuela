@@ -25,5 +25,7 @@ public class Escuela implements Serializable {
     private String descripcion;
     @Column(name="imagen")
     private String imagen;
+ 
+
 
 }
